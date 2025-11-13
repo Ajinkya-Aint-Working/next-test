@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  next-app:
+    image: my-app-next-app 
+    # build:
+    #   context: .
+    # container_name: next-runtime-app
+    ports:
+      - "3000:3000"
+
+    environment:
+      NODE_ENV: production
+      
+      # 🔥 Dynamic runtime env (will be injected into /public/runtime-config.js)
+      NEXT_PUBLIC_API_URL: "https:/abc123xyz/.com"
+      NEXT_PUBLIC_ANALYTICS_KEY: "abc123xyz"
+
+    restart: always
